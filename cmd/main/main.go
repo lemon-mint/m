@@ -8,8 +8,22 @@ import (
 
 func main() {
 	orignal := []byte("Hello, World!")
-	data := m.Unwrap(base64.StdEncoding.DecodeString(base64.StdEncoding.EncodeToString(orignal)))
-	if string(data) != string(orignal) {
-		panic("failed")
+	data := ResultBase64DecodeString(base64.StdEncoding.EncodeToString(orignal))
+	data.Match(func(v []byte) {
+		println(string(v))
+		if string(v) != string(orignal) {
+			panic("not equal")
+		}
+	}, func(err error) {
+		panic(err)
+	})
+
+}
+
+func ResultBase64DecodeString(s string) m.Result[[]byte] {
+	v, err := base64.StdEncoding.DecodeString(s)
+	if err != nil {
+		return m.Err[[]byte](err)
 	}
+	return m.Ok(v)
 }
