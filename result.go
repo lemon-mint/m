@@ -40,6 +40,6 @@ func (r Result[T]) Match(onOk func(v T), onErr func(err error)) {
 	}
 }
 
-func ErrValue[T any](v T, err error) Result[T] {
+func RValue[T any](v T, err error) Result[T] {
 	return Result[T]{v: v, err: err}
 }

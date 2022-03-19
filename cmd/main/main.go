@@ -21,5 +21,5 @@ func main() {
 }
 
 func ResultBase64DecodeString(s string) m.Result[[]byte] {
-	return m.ErrValue(base64.StdEncoding.DecodeString(s))
+	return m.RValue(base64.StdEncoding.DecodeString(s))
 }
