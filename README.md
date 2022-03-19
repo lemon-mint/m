@@ -1,4 +1,4 @@
-[![Unsafe 100%](https://img.shields.io/badge/unsafe-100%25-orange?style=for-the-badge)](https://doc.rust-lang.org/nomicon/)
+[![Unsafe 100%](https://img.shields.io/badge/unsafe-100%25-orange?style=for-the-badge)](https://pkg.go.dev/unsafe)
 
 # m
 Generic programming in Go
