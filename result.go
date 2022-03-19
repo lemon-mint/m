@@ -39,3 +39,7 @@ func (r Result[T]) Match(onOk func(v T), onErr func(err error)) {
 		onErr(r.err)
 	}
 }
+
+func Value[T any](v T, err error) Result[T] {
+	return Result[T]{v: v, err: err}
+}
